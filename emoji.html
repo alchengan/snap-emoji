@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Discord Emoji Maker</title>
+        <link rel="stylesheet" href="emoji.css">
+    </head>
+
+    <body>
+        <canvas hidden id="hcanvas" width="500" height="500"></canvas>
+        <canvas id="canvas" width="500" height="500"></canvas><br>
+
+        <label for="uploader">Select file:</label>
+        <input type="file" id="uploader" accept="image/*">
+        <button id="reset">Reset</button><br>
+        
+        <label for="name">Name:</label>
+        <input type="text" id="name" value="emoji">
+        <button id="download">Download</button><br>
+
+        Emoji name must be at least two characters long and can only contain alphanumeric characters or underscores
+
+        <script type="text/javascript" src="emoji.js"></script>
+    </body>
+</html>

@@ -1,0 +1,7 @@
+== FAST DISCORD EMOJI MAKER ==
+- keep hctx up to date
+- preview on discord mockup
+- check file size
+- add drag and drop functionality
+- zoom from cursor?
+- STYLE
