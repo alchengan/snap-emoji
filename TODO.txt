@@ -5,5 +5,7 @@
 - zoom from cursor?
 - STYLE
 - add video/gif support
-- resizing algorithm is, like, good enough, but it could
-  definitely be optimized
+- slack support (>128x128 and >128kb)
+
+BUGS
+- lets you download with filename even if name is invalid

@@ -44,7 +44,8 @@ function uploadImage(e) {
         img.src = reader.result;
     };
     reader.readAsDataURL(e.target.files[0]);
-    emojiName.value = e.target.files[0].name;
+    emojiName.value = e.target.files[0].name.split('.').slice(0,-1).join('.');    // assumes there is a file extension and gets rid of it
+    checkName();
 }
 
 /*
