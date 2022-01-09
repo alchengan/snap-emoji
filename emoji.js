@@ -10,7 +10,7 @@ const validName = /^[\w\d_]{2,}$/;  // alphanumeric or '_', at least 2 character
 const reader = new FileReader();
 const img = new Image();
 var zoom = 1;   // scale probably would have been a better name
-var xpos = 0, ypos = 0; // mouse position
+var xpos = 0, ypos = 0; // old mouse position to track mouse movement
 var picx = 0, picy = 0; // image top-left offset
 var imgw = 0, imgh = 0; // image dimensions
 var fitImgw = 0, fitImgh = 0;   // image dimensions after fitting to canvas
@@ -20,6 +20,7 @@ function uploadImage(e) {
         img.onload = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             var ratio = img.width / img.height;
+            zoom = 1;   // reset zoom
 
             // resizes image to fit the canvas
             // then centers it
@@ -110,9 +111,7 @@ function onWheel(e) {
 
     var lastZoom = zoom;    // need to keep track of previous scale amount for scaling from cursor
     zoom += e.deltaY * -0.001;
-    zoom = Math.max(0,zoom);
-    console.log(e.offsetX, e.offsetY);
-    console.log(picx, picy);
+    zoom = Math.max(0.001,zoom);
     imgw = fitImgw * zoom;
     imgh = fitImgh * zoom;
     picx = e.offsetX - (e.offsetX-picx) * zoom/lastZoom;
