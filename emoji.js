@@ -108,10 +108,15 @@ function onWheel(e) {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+    var lastZoom = zoom;    // need to keep track of previous scale amount for scaling from cursor
     zoom += e.deltaY * -0.001;
     zoom = Math.max(0,zoom);
+    console.log(e.offsetX, e.offsetY);
+    console.log(picx, picy);
     imgw = fitImgw * zoom;
     imgh = fitImgh * zoom;
+    picx = e.offsetX - (e.offsetX-picx) * zoom/lastZoom;
+    picy = e.offsetY - (e.offsetY-picy) * zoom/lastZoom;
 
     ctx.drawImage(img, picx, picy, imgw, imgh);
 }
@@ -124,12 +129,18 @@ function checkName() {
     }
 }
 
+function onEnter(e) {
+    if(e.keyCode === 13) {
+        e.preventDefault();
+        dlButton.click();
+    }
+}
+
 function getPNGSize(cnv) {
     var head = 'data:image/png;base64,';
     return (cnv.toDataURL().length - head.length)*3/4;
 }
 
-// fuck blobs
 function download() {
     hctx.clearRect(0,0,hCanvas.width,hCanvas.height);
     hctx.drawImage(canvas,0,0,hCanvas.width,hCanvas.height);
@@ -158,5 +169,6 @@ canvas.addEventListener('mousedown', onMouseDown);
 canvas.addEventListener('wheel', onWheel);
 
 emojiName.addEventListener('input', checkName);
+emojiName.addEventListener('keyup', onEnter);
 document.getElementById("reset").addEventListener('click', reset);
 dlButton.addEventListener('click', download);
