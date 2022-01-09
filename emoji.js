@@ -136,6 +136,7 @@ function onEnter(e) {
 }
 
 function getPNGSize(cnv) {
+    // google said this was an accurate way to get the size of a png
     var head = 'data:image/png;base64,';
     return (cnv.toDataURL().length - head.length)*3/4;
 }
@@ -146,6 +147,8 @@ function download() {
 
     let smallEnough = getPNGSize(hCanvas)/1024 < 256;
 
+    // if the file is too large, reduce both dimensions by 10 pixels until it is small enough
+    // not the prettiest algorithm, but i don't think the situation really calls for a fancier one
     while(!smallEnough) {
         console.log(getPNGSize(hCanvas)/1024);
         hCanvas.width -= 10;
