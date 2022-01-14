@@ -7,3 +7,8 @@ _1/9/2022_
 - scroll wheel now scales from the cursor
 - can now press enter after changing the emoji name
 - lil bit of ux
+
+# v1.0.2
+_1/14/2022_
+- added discord preview
+- also added a bunch of bugs probably

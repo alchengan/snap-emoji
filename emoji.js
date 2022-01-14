@@ -2,6 +2,8 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const hCanvas = document.getElementById('hcanvas');
 const hctx = hCanvas.getContext('2d');
+const dCanvas = document.getElementById('dcanvas');
+const dctx = dCanvas.getContext('2d');
 const emojiName = document.getElementById('name');
 const dlButton = document.getElementById('download');
 
@@ -39,7 +41,7 @@ function uploadImage(e) {
             fitImgw = imgw;
             fitImgh = imgh;
             ctx.drawImage(img, picx, picy, imgw, imgh);
-
+            drawPreview();
             //drawViewer();
         };
         img.src = reader.result;
@@ -73,6 +75,7 @@ function onMouseMove(e) {
     xpos = e.offsetX;
     ypos = e.offsetY;
     ctx.drawImage(img, picx, picy, imgw, imgh);
+    drawPreview();
     //drawViewer();
 }
 
@@ -82,6 +85,7 @@ function onMouseUp(e) {
     window.removeEventListener("mouseup", onMouseUp);
 }
 
+// resets image to initial upload state
 function reset() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     var ratio = img.width / img.height;
@@ -101,6 +105,7 @@ function reset() {
         imgh = canvas.height;
     }
     ctx.drawImage(img, picx, picy, imgw, imgh);
+    drawPreview();
     //drawViewer();
 }
 
@@ -118,14 +123,29 @@ function onWheel(e) {
     picy = e.offsetY - (e.offsetY-picy) * zoom/lastZoom;
 
     ctx.drawImage(img, picx, picy, imgw, imgh);
+    drawPreview();
 }
 
 function checkName() {
     if(emojiName.value.match(validName)) {
         dlButton.disabled = false;
+        drawPreview();
     } else {
         dlButton.disabled = true;
     }
+}
+
+function drawPreview() {
+    dctx.clearRect(0, 0, dCanvas.width, dCanvas.height);
+
+    dctx.drawImage(canvas, 75, 392, 16, 16);    // emoji as reaction
+    dctx.drawImage(canvas, 68, 271, 48, 48);    // message with only emoji
+    dctx.drawImage(canvas, 68, 362, 22, 22);    // message with text and emoji
+    dctx.drawImage(canvas, 68, 449, 22, 22);    // emoji being typed
+
+    dctx.font = '14px sans-serif';              // message with text and emoji oh my god it looks so bad
+    dctx.fillStyle = 'white';
+    dctx.fillText(emojiName.value, 94, 380);
 }
 
 function onEnter(e) {

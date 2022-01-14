@@ -1,1 +1,52 @@
-canvas {border: 5px solid gray}
+@import url('https://fonts.googleapis.com/css?family=Cairo');
+
+/*
+* {
+    box-sizing: border-box;
+    font-family: Cairo;
+    color: gray;
+}*/
+
+/*
+html, body {
+    background-color: #444;
+}*/
+
+/*
+.main-header {
+    background-color: yellow;
+}*/
+
+.emoji-canvas {
+    border: 5px solid gray;
+    padding: 0;
+    margin: 0;
+}
+
+.emoji-canvas:hover {
+    cursor: grab;
+}
+
+.emoji-maker-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+    /*border: 5px solid orange;*/
+}
+
+/*
+.emoji-maker {
+    border: 5px solid green;
+    padding: 0;
+    margin: 0;
+}
+
+.discord-preview {
+    border: 5px solid blue;
+}
+*/
+
+.discord-canvas {
+    background-image: url("./images/discord_blank.png");
+}

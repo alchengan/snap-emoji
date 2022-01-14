@@ -3,15 +3,29 @@
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Discord Emoji Maker</title>
+        <title>Snap Emoji</title>
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Open+Sans">
         <link rel="stylesheet" href="emoji.css">
     </head>
 
     <body>
+        <header class="main-header">
+            <h1 class="snap-emoji">Snap Emoji</h1>
+            <h3 class="desc">Discord Emoji Maker</h2>
+        </header>
+    
         <p>Drag with mouse, scale with scroll wheel</p>
 
-        <canvas hidden id="hcanvas" width="500" height="500"></canvas>
-        <canvas id="canvas" width="500" height="500"></canvas><br>
+        <div class="emoji-maker-container">
+            <div class="emoji-maker">
+                <canvas hidden id="hcanvas" width="500" height="500"></canvas>
+                <canvas class="emoji-canvas" id="canvas" width="500" height="500"></canvas>
+            </div>
+
+            <div class="discord-preview">
+                <canvas class="discord-canvas" id="dcanvas" width="500" height="500" ></canvas>
+            </div>
+        </div>
 
         <label for="uploader">Select file:</label>
         <input type="file" id="uploader" accept="image/*">
@@ -21,7 +35,7 @@
         <input type="text" id="name" value="emoji">
         <button id="download">Download</button><br>
 
-        Emoji name must be at least two characters long and can only contain alphanumeric characters or underscores
+        <p>Emoji name must be at least two characters long and can only contain alphanumeric characters or underscores</p>
 
         <script type="text/javascript" src="emoji.js"></script>
     </body>

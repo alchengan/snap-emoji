@@ -1,10 +1,8 @@
 == FAST DISCORD EMOJI MAKER ==
-- preview on discord mockup
 - add drag and drop functionality
 - STYLE
 - add video/gif support
-- slack support (>128x128 and >128kb)
-- mobile support ew
 
 BUGS
 - snapping to top left if cursor leaves window
+- the dragging has gotten even weirder
