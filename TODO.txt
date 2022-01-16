@@ -1,8 +1,6 @@
 == FAST DISCORD EMOJI MAKER ==
+- add a default emoji
+- add mouse icons
 - add drag and drop functionality
-- STYLE
+- more style
 - add video/gif support
-
-BUGS
-- snapping to top left if cursor leaves window
-- the dragging has gotten even weirder

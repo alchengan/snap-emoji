@@ -12,3 +12,7 @@ _1/9/2022_
 _1/14/2022_
 - added discord preview
 - also added a bunch of bugs probably
+
+# v1.1.0
+_1/16/2022_
+- oh look style!
