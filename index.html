@@ -8,54 +8,58 @@
     </head>
 
     <body>
-        <div class="header top-header">
-            <div class="site-title">
-                <div class="snap-emoji-title">Snap Emoji</div>
-                <div class="snap-emoji-desc">A Discord Emoji Maker</div>
-            </div>
-
-            <div class="author">
-                <div>a webtool by </div>
-                <a href="https://github.com/alchengan">alan cheng</a>
-            </div>
-        </div>
-    
-        <div class="page-content">
-            <div class="emoji-maker-container">
-                <div class="emoji-editor-container">
-                    <div class="instructions">Drag with mouse, scale with scroll wheel</div>
-            
-                    <div class="upload">
-                        <label for="uploader">Select file:</label>
-                        <input type="file" id="uploader" accept="image/*">
-                        <button id="reset" class="btn btn-reset">Reset</button>
+        <div class="page-container">
+            <div class="content-wrap">
+                <div class="header top-header">
+                    <div class="site-title">
+                        <div class="snap-emoji-title">Snap Emoji</div>
+                        <div class="snap-emoji-desc">A Discord Emoji Maker</div>
                     </div>
 
-                    <div class="emoji-maker">
-                        <canvas hidden id="hcanvas" width="500" height="500"></canvas>
-                        <canvas class="emoji-canvas" id="canvas" width="500" height="500"></canvas>
+                    <div class="author">
+                        <div>a webtool by </div>
+                        <a href="https://github.com/alchengan">alan cheng</a>
                     </div>
                 </div>
+            
+                <div class="page-content">
+                    <div class="emoji-maker-container">
+                        <div class="emoji-editor-container">
+                            <div class="instructions">Drag with mouse, scale with scroll wheel</div>
+                    
+                            <div class="upload">
+                                <label for="uploader">Select file:</label>
+                                <input type="file" id="uploader" accept="image/*">
+                                <button id="reset" class="btn btn-reset">Reset</button>
+                            </div>
 
-                <div class="preview-container">
-                    <div class="preview-text">Preview:</div>
-                    <div class="discord-preview">
-                        <canvas class="discord-canvas" id="dcanvas" width="500" height="500" ></canvas>
+                            <div class="emoji-maker">
+                                <canvas hidden id="hcanvas" width="500" height="500"></canvas>
+                                <canvas class="emoji-canvas" id="canvas" width="500" height="500"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="preview-container">
+                            <div class="preview-text">Preview:</div>
+                            <div class="discord-preview">
+                                <canvas class="discord-canvas" id="dcanvas" width="500" height="500" ></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="emoji-name-container">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" class="input-name" value="emoji">
+                        <button id="download" class="btn btn-download">Download</button><br>
+
+                        <div>Emoji name must be at least two characters long and can only contain alphanumeric characters or underscores</div>
                     </div>
                 </div>
             </div>
-            
-            <div class="emoji-name-container">
-                <label for="name">Name:</label>
-                <input type="text" id="name" class="input-name" value="emoji">
-                <button id="download" class="btn btn-download">Download</button><br>
 
-                <div>Emoji name must be at least two characters long and can only contain alphanumeric characters or underscores</div>
+            <div class="header footer">
+                <a href="https://github.com/alchengan/snap-emoji">This Project on Github</a>
             </div>
-        </div>
-
-        <div class="header bot-header">
-            <a href="https://github.com/alchengan/snap-emoji">This Project on Github</a>
         </div>
 
         <script type="text/javascript" src="emoji.js"></script>

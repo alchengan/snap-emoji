@@ -12,6 +12,15 @@ html, body {
     margin: 0;
 }
 
+.page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+.content-wrap {
+    padding-bottom: 2.5rem;
+}
+
 .header {
     background-color: #5764ee;
     padding: 0px;
@@ -31,6 +40,13 @@ html, body {
 .author {
     display: flex;
     gap: .3em;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
 }
 
 .snap-emoji-title {
