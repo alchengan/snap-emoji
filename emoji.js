@@ -143,7 +143,7 @@ function drawPreview() {
     dctx.drawImage(canvas, 68, 362, 22, 22);    // message with text and emoji
     dctx.drawImage(canvas, 68, 449, 22, 22);    // emoji being typed
 
-    dctx.font = '14px sans-serif';              // message with text and emoji oh my god it looks so bad
+    dctx.font = '14px sans-serif';              // message with text and emoji oh my god it looks so bad listen whitney isn't a free font
     dctx.fillStyle = 'white';
     dctx.fillText(emojiName.value, 94, 380);
 }
@@ -162,19 +162,20 @@ function getPNGSize(cnv) {
 }
 
 function download() {
-    hctx.clearRect(0,0,hCanvas.width,hCanvas.height);
-    hctx.drawImage(canvas,0,0,hCanvas.width,hCanvas.height);
+    hCanvas.width = canvas.width;    // reset
+    hCanvas.height = canvas.height;
+    hctx.clearRect(0, 0, hCanvas.width, hCanvas.height);
+    hctx.drawImage(canvas, 0, 0, hCanvas.width, hCanvas.height);
 
     let smallEnough = getPNGSize(hCanvas)/1024 < 256;
 
     // if the file is too large, reduce both dimensions by 10 pixels until it is small enough
     // not the prettiest algorithm, but i don't think the situation really calls for a fancier one
     while(!smallEnough) {
-        console.log(getPNGSize(hCanvas)/1024);
         hCanvas.width -= 10;
         hCanvas.height -= 10;
-        hctx.clearRect(0,0,hCanvas.width,hCanvas.height);
-        hctx.drawImage(canvas,0,0,hCanvas.width,hCanvas.height);
+        hctx.clearRect(0, 0, hCanvas.width, hCanvas.height);
+        hctx.drawImage(canvas, 0, 0, hCanvas.width, hCanvas.height);
         smallEnough = getPNGSize(hCanvas)/1024 < 256;
     }
 
